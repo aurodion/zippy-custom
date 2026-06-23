@@ -70,8 +70,8 @@ templates/pages/doc/goodsreceipt.html
 ```
 📦 zippy-price-converter
  ├── 📄 README.md          # Ця документація
- ├── 📄 converter.html     # Код конвертера (вставляється в шаблон)
- └── 🖼️  screenshot.jpg    # Скріншот інтерфейсу
+ ├── 📄 goodsreceipt-converter/converter.html     # Код конвертера (вставляється в шаблон)
+ └── 🖼️ goodsreceipt-converter/screenshot.jpg    # Скріншот інтерфейсу
 ```
 
 ---
