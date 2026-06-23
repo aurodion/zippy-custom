@@ -37,7 +37,7 @@
 ## 📸 Скріншот
 
 <p align="center">
-  <img src="screenshot.jpg" alt="Скріншот конвертера" width="360">
+  <img src="goodsreceipt-converter/screenshot.jpg" alt="Скріншот конвертера" width="360">
 </p>
 
 ---
