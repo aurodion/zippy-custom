@@ -1,48 +1,48 @@
-<div class="card mt-4 mb-3" style="background-color: #454d55; color: #fff; border-radius: 6px; border: 1px solid #495057;">
+<div class="card mt-4 mb-3 border">
     <div class="card-body p-3">
 
-        <div class="form-group mb-3 p-2 text-center" style="background-color: #454d55; border-radius: 4px; border: 1px solid #343a40;">
+        <div class="form-group mb-3 p-2 text-center border rounded">
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="mode_val" name="conv_mode" class="custom-control-input" value="val" checked>
                 <label class="custom-control-label" for="mode_val" style="font-size: 0.85rem; font-weight: bold; cursor: pointer;">валюта</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="mode_uah" name="conv_mode" class="custom-control-input" value="uah">
-                <label class="custom-control-label" for="mode_uah" style="font-size: 0.85rem; font-weight: bold; color: #ffc107; cursor: pointer;">гривня</label>
+                <label class="custom-control-label" for="mode_uah" style="font-size: 0.85rem; font-weight: bold; cursor: pointer;">гривня</label>
             </div>
         </div>
 
         <div class="form-group mb-3">
-            <label id="lbl_main_input" style="color: #66b2ff; font-weight: bold; font-size: 0.85rem; margin-bottom: 3px; display: block;">Ціна у валюті:</label>
-            <input type="text" id="conv_usd" class="form-control text-white" style="background-color: #212529; border: 1px solid #66b2ff; font-weight: bold; font-size: 1.1rem; height: 38px;" value="" placeholder="Введіть суму..." onfocus="this.select();" onmouseup="return false;">
+            <label id="lbl_main_input" style="font-weight: bold; font-size: 0.8rem; margin-bottom: 3px; display: block; color: #6c757d;">Ціна у валюті:</label>
+            <input type="text" id="conv_usd" class="form-control" style="font-weight: bold; font-size: 1.1rem; height: 38px;" value="" placeholder="Введіть суму..." onfocus="this.select();" onmouseup="return false;">
         </div>
 
-        <div class="p-2 mb-3" style="background-color: #212529; border-radius: 4px; border: 1px solid #343a40;">
+        <div class="p-2 mb-3 border rounded bg-light">
 
-            <div id="row_pure" class="d-flex justify-content-between align-items-center mb-2 pb-2" style="border-bottom: 1px solid #343a40;">
+            <div id="row_pure" class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom">
                 <span style="font-weight: bold; font-size: 0.9rem;">
-                    UAH (чиста): <span id="res_pure" style="color: #28a745;">0.00</span>
+                    UAH (чиста): <span id="res_pure" class="text-success">0.00</span>
                 </span>
-                <button type="button" class="btn btn-secondary btn-sm px-2 py-0" style="font-size: 0.75rem; height: 22px;" onclick="copyToClipboard('res_pure')">Копіювати</button>
+                <button type="button" class="btn btn-primary btn-sm px-2 py-0" style="font-size: 0.75rem; height: 22px;" onclick="copyToClipboard('res_pure')">Копіювати</button>
             </div>
 
             <div class="d-flex justify-content-between align-items-center">
                 <span style="font-weight: bold; font-size: 0.9rem;">
-                    UAH × <span id="lbl_margin">1.6</span>: <span id="res_margin" style="color: #ffc107;">0.00</span>
+                    UAH × <span id="lbl_margin">1.6</span>: <span id="res_margin" style="color: #856404;">0.00</span>
                 </span>
-                <button type="button" class="btn btn-secondary btn-sm px-2 py-0" style="font-size: 0.75rem; height: 22px;" onclick="copyToClipboard('res_margin')">Копіювати</button>
+                <button type="button" class="btn btn-primary btn-sm px-2 py-0" style="font-size: 0.75rem; height: 22px;" onclick="copyToClipboard('res_margin')">Копіювати</button>
             </div>
 
         </div>
 
         <div class="form-group mb-2" id="group_rate">
-            <label style="color: #aaa; font-weight: bold; font-size: 0.8rem; margin-bottom: 3px; display: block;">Курс валюти:</label>
-            <input type="text" id="conv_rate" class="form-control text-white" style="background-color: #212529; border: 1px solid #495057; height: 34px;" value="45" onfocus="this.select();" onmouseup="return false;">
+            <label style="font-weight: bold; font-size: 0.8rem; margin-bottom: 3px; display: block; color: #6c757d;">Курс валюти:</label>
+            <input type="text" id="conv_rate" class="form-control" style="height: 34px;" value="45.5" onfocus="this.select();" onmouseup="return false;">
         </div>
 
         <div class="form-group mb-1">
-            <label style="color: #aaa; font-weight: bold; font-size: 0.8rem; margin-bottom: 3px; display: block;">Коефіцієнт націнки:</label>
-            <input type="text" id="conv_margin" class="form-control text-white" style="background-color: #212529; border: 1px solid #495057; height: 34px;" value="1.3" onfocus="this.select();" onmouseup="return false;">
+            <label style="font-weight: bold; font-size: 0.8rem; margin-bottom: 3px; display: block; color: #6c757d;">Коефіцієнт націнки:</label>
+            <input type="text" id="conv_margin" class="form-control" style="height: 34px;" value="1.6" onfocus="this.select();" onmouseup="return false;">
         </div>
 
     </div>
@@ -62,13 +62,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const rowPure      = document.getElementById('row_pure');
     const groupRate    = document.getElementById('group_rate');
 
-    // Відновлення значень із сесії
     const savedRate   = sessionStorage.getItem('conv_saved_rate');
     const savedMargin = sessionStorage.getItem('conv_saved_margin');
     const savedMode   = sessionStorage.getItem('conv_saved_mode');
 
-    if (savedRate   !== null) rateInput.value   = savedRate;
-    if (savedMargin !== null) marginInput.value  = savedMargin;
+    if (savedRate   !== null) rateInput.value  = savedRate;
+    if (savedMargin !== null) marginInput.value = savedMargin;
     if (savedMode   !== null) {
         document.querySelectorAll('input[name="conv_mode"]').forEach(r => {
             if (r.value === savedMode) r.checked = true;
@@ -80,10 +79,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function calculate() {
-        const activeMode  = document.querySelector('input[name="conv_mode"]:checked').value;
-        const inputVal    = parseValue(usdInput.value);
-        const rate        = parseValue(rateInput.value);
-        const marginCoef  = parseValue(marginInput.value);
+        const activeMode = document.querySelector('input[name="conv_mode"]:checked').value;
+        const inputVal   = parseValue(usdInput.value);
+        const rate       = parseValue(rateInput.value);
+        const marginCoef = parseValue(marginInput.value);
 
         lblMargin.innerText = marginInput.value.replace(',', '.');
 
@@ -136,12 +135,12 @@ function copyToClipboard(elementId) {
 
     const btn     = event.target;
     const oldText = btn.innerText;
-    btn.innerText = '✓';
-    btn.classList.replace('btn-secondary', 'btn-success');
+    btn.innerText = '✓ Скопійовано';
+    btn.classList.replace('btn-primary', 'btn-success');
 
     setTimeout(() => {
         btn.innerText = oldText;
-        btn.classList.replace('btn-success', 'btn-secondary');
+        btn.classList.replace('btn-success', 'btn-primary');
     }, 1000);
 }
 </script>
