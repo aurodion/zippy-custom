@@ -61,7 +61,7 @@ templates/pages/doc/goodsreceipt.html
 
 ### 3. Вставте код конвертера одразу після цього блоку
 
-Вставте вміст файлу [`converter.html`](converter.html) після закриваючого тегу `</div>`.
+Вставте вміст файлу [`converter.html`](goodsreceipt-converter/converter.html) після закриваючого тегу `</div>`.
 
 ---
 
