@@ -1,17 +1,6 @@
 <div class="card mt-4 mb-3 border">
     <div class="card-body p-3">
 
-        <div class="form-group mb-3 p-2 text-center border rounded">
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="mode_val" name="conv_mode" class="custom-control-input" value="val" checked>
-                <label class="custom-control-label" for="mode_val" style="font-size: 0.85rem; font-weight: bold; cursor: pointer;">валюта</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="mode_uah" name="conv_mode" class="custom-control-input" value="uah">
-                <label class="custom-control-label" for="mode_uah" style="font-size: 0.85rem; font-weight: bold; cursor: pointer;">гривня</label>
-            </div>
-        </div>
-
         <div class="form-group mb-3">
             <label id="lbl_main_input" style="font-weight: bold; font-size: 0.8rem; margin-bottom: 3px; display: block; color: #6c757d;">Ціна у валюті:</label>
             <input type="text" id="conv_usd" class="form-control" style="font-weight: bold; font-size: 1.1rem; height: 38px;" value="" placeholder="Введіть суму..." onfocus="this.select();" onmouseup="return false;">
@@ -35,6 +24,17 @@
 
         </div>
 
+        <div class="form-group mb-3 p-2 text-center border rounded">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="mode_val" name="conv_mode" class="custom-control-input" value="val" checked>
+                <label class="custom-control-label" for="mode_val" style="font-size: 0.85rem; font-weight: bold; cursor: pointer;">валюта</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="mode_uah" name="conv_mode" class="custom-control-input" value="uah">
+                <label class="custom-control-label" for="mode_uah" style="font-size: 0.85rem; font-weight: bold; cursor: pointer;">гривня</label>
+            </div>
+        </div>
+        
         <div class="form-group mb-2" id="group_rate">
             <label style="font-weight: bold; font-size: 0.8rem; margin-bottom: 3px; display: block; color: #6c757d;">Курс валюти:</label>
             <input type="text" id="conv_rate" class="form-control" style="height: 34px;" value="45.5" onfocus="this.select();" onmouseup="return false;">  <!-- Курс валюти за замовчуванням -->
